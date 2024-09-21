@@ -12,7 +12,9 @@
     "firebase": "^10.13.2",
     "material-design-icons": "^3.0.1",
     "materialize-css": "^1.0.0-rc.2",
-    "vue": "^3.2.13"
+    "vue": "^3.2.13",
+    "vue-route": "^1.5.1",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
