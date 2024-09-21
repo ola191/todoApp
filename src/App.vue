@@ -4,10 +4,15 @@
 </template>
 
 <script>
+
 import HelloWorld from './components/HelloWorld.vue'
+import M from 'materialize-css'
 
 export default {
   name: 'App',
+  mounted () {
+    M.AutoInit()
+  },
   components: {
     HelloWorld
   }
