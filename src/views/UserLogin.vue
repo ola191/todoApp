@@ -75,8 +75,6 @@ import { auth } from '../firebase';
 
 import M from 'materialize-css'
 
-
-
 import {
     signInWithEmailAndPassword,
     signInWithPopup,
@@ -207,10 +205,16 @@ export default {
         },
     },
     mounted() {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                this.$router.push('/dashboard');
+            }
+        });
         if (auth.currentUser) {
             this.checkEmailVerification();
         }
         this.$nextTick(M.updateTextFields);
+        
     }
 };
 

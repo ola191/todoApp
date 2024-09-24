@@ -15,14 +15,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-    const isAuthenticated = auth.currentUser;
+    auth.onAuthStateChanged((user) => {
+        const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-    if (requiresAuth && !isAuthenticated) {
-        next('/login');
-    } else {
-        next();
-    }
+        if (requiresAuth && !user) {
+            next('/login'); 
+        } else if (to.path === '/login' && user) {
+            next('/dashboard');
+        } else {
+            next();
+        }
+    });
 });
 
 
